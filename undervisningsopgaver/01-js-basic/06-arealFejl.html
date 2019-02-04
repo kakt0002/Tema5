@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        let bredde = prompt("Angiv bredde");
+        let længde = prompt("Angiv længde");
+        //        //        Opgaven: Prøv at ændre på programmet, så det tager
+        ////højde for fejldata og giver brugeren en fejlmelding. \n betyder blot ny linje
+
+        //Nedenstående står der:
+        //Hvis a er lig med 0, så skal den starte forfra med beskeden.
+        //Hvis a ikke er tal (NAN = not a number), skal der stå prøv igen med tal.
+        //Til sidst hvis arealet er længde gange bredde, vil den så regne det ud.
+
+        function areal(l, b) {
+            let a = (l * b);
+            if (a == 0) {
+                return (`Husk længde og bredde skal være tal. \n Prøv igen`);
+            } else if (isNaN(a)) {
+                return (`Fejl. \n Prøv igen med tal`)
+            } else {
+                return (`Arealet er ${a}. \n Vil du lave et nyt areal?`)
+            }
+        }
+
+
+        let resultat = areal(længde, bredde);
+
+        confirm(resultat);
+
+        if (confirm) {
+            location.reload();
+        }
+    </script>
+</body>
+
+</html>
