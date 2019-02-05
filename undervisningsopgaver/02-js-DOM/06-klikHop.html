@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+
+    <div id="box"> </div>
+    <div id="cirkel"></div>
+
+    <style>
+        #box {
+            background: green;
+            width: 300px;
+            height: 300px;
+            text-align: center;
+            line-height: 300px;
+
+        }
+
+        #cirkel {
+            background: red;
+            text-align: center;
+            width: 300px;
+            height: 300px;
+            border-radius: 150px;
+            line-height: 300px;
+        }
+    </style>
+
+    <script>
+        let boxurl = `http://helf-kea.dk/test/frog.png`
+        let cirkelurl = `http://helf-kea.dk/test/gris.png`
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            document.querySelector("#box").innerHTML = `<img src=${boxurl}>`;
+            document.querySelector("#cirkel").innerHTML = `<img src=${cirkelurl}>`;
+            document.querySelector("#box").addEventListener("click", byt);
+        }
+
+        function byt() {
+            document.querySelector("#cirkel").innerHTML = `<img src=${boxurl}>`;
+            document.querySelector("#box").innerHTML = `<img src=${cirkelurl}>`;
+            document.querySelector("#box").addEventListener("click", stop);
+
+        }
+
+        function stop() {
+            document.querySelector("#box").removeEventListener("click", byt)
+
+        }
+    </script>
+</body>
+
+</html>
+
+<!--
+FACIT TIL OPGAVEN:
+https://www.youtube.com/watch?v=dEWWvxFz_hg&feature=youtu.be
+-->
