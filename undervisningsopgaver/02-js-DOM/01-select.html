@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+
+    <div id="content">
+        <div> <a href="https://kea.dk/">Kea</a> </div>
+        <div> <a href="https://github.com/kakt0002">Github</a> </div>
+        <div>
+            <img src="http://helf-kea.dk/test/frog.png">
+        </div>
+    </div>
+
+    <script>
+        document.querySelector("#content");
+        console.log(document.querySelector("img"));
+
+    </script>
+</body>
+
+
+</html>
+
+<!--
+Forklaring af opgave:
+Vi har tre div'er, to med links og et billede. Vi bliver bedt om at lave en queryselector på hver af elementerne - dvs vælge elementerne, også vise hvad det er vi har valgt. Vise det i DOM'en.
+Man kunne også gøre følgende:
+Hvis vi f.eks. vælger content:
+let content=document.queryselector("#content");
+console.log(content)
+Vi laver variabel, men det er egentlig overflødigt. Det skal ikke være sådan. Det er bare så der ikke kommer sådan en lang tekst.
+Næste div, har ikke noget id eller nogen klasse. Hvordan får vi fat i den? Ved #content, og div for at ramme den første div.
+
+let content=document.queryselector("#content div");
+console.log(content)
+
+Hvad hvis jeg gerne vil have fat i linket? - tilføj a:
+Sætningen læses bagfra: "giv mig det a, som er inde i den div, som er inde i content".
+let content=document.queryselector("#content div a");
+console.log(content)
+
+Hvis man så skal have nummer to div, skriver man div + div:
+
+let content=document.queryselector("#content div + div a");
+console.log(content)
+
+Når man har flere "søskende", altså elementer inde i et moder elementer, så kan jeg tilgå underelementerne ved at sige den første, plus den næste. Så for at få det tredje element ()"#content div + div + div img"). Fordi der kun er et billede kunne man godt nøjes med ("#content img). Det bliver hurtigt upræcist, hvis jeg lige ludselig ligger flere billeder ind. Det godt at være præcis!
+
+Hvad hvis man har 500 div'er? Så er der en selector der hedder pseudo.
+Jeg har 200 div’s og ønsker at hver anden skal have en anden bagrundsfarve, så kan jeg bruge, div:nth-child(odd), så vil den tage hver anden f.eks.
+Med denne selector kan man vælge et hvilket som helst element! Du vælger bare tallet.
+Men man skal altså stadig sidde og tælle selv, hvilken nummer div man vil have frem.
+
+-->

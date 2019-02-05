@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+
+    <div id="box"></div>
+    <div id="cirkel"></div>
+
+    <style>
+        #box {
+            background: green;
+            width: 300px;
+            height: 300px;
+            text-align: center;
+            line-height: 300px;
+
+        }
+
+        #cirkel {
+            background: red;
+            text-align: center;
+            width: 300px;
+            height: 300px;
+            border-radius: 150px;
+            line-height: 300px;
+        }
+    </style>
+
+    <script>
+        document.querySelector("#box").textContent = "Grøn firkant";
+
+        document.querySelector("#cirkel").textContent = "Rød cirkel";
+    </script>
+
+    I denne opgave bruger jeg javascript "textcontent" til at hente tekst ind, og altså derved ligger jeg et tekstindhold ind i elementet, uden at skrive teskten i HTML'en!
+</body>
+
+</html>
