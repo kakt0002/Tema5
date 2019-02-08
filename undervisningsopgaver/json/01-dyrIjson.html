@@ -21,8 +21,8 @@
         //Hent JSON i synkron function
         async function hentJson() {
             //henter data filen
-            const myJson = await fetch("alleDyr.json");
-            //den hentede data skal tolkes som json
+            const myJson = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1eBNqPb_SgxmA2kVMKTKGLCg5qyrGd0HoXPzaYXe7qJA ");
+            //den hentede data skal tolkes som json.
             dyrene = await myJson.json();
             //kald funktion der viser data i DOM
             start();
