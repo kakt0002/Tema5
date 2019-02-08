@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+
+    <div id="dyr">
+    </div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+
+            let dyrene = [{
+                    "navn": "gris",
+                    "type": "pattedyr",
+                    "billede": "http://helf-kea.dk/test/gris.png",
+                    "levested": "svinefarme"
+                },
+                {
+                    "navn": "frø",
+                    "type": "amfibie",
+                    "billede": "http://helf-kea.dk/test/frø.png",
+                    "levested": "skoven"
+                },
+                {
+                    "navn": "ræv",
+                    "type": "pattedyr",
+                    "billede": "http://helf-kea.dk/test/fox.png",
+                    "levested": "skoven"
+                },
+
+                {
+                    "navn": "sild",
+                    "type": "fisk",
+                    "billede": "http://helf-kea.dk/test/sild.jpg",
+                    "levested": "havet"
+                }
+
+                ,
+
+                {
+                    "navn": "krokodille",
+                    "type": "krybdyr",
+                    "billede": "http://helf-kea.dk/test/kroko.jpg",
+                    "levested": "sump"
+                }
+            ]
+
+            //           let info = `Navn: ${dyr.navn}, Type: ${dyr.type}, Levested: ${dyr.levested} <img src=${dyr.billede}>`;
+
+            console.log(dyrene);
+
+
+
+
+        }
+    </script>
+
+</body>
+
+</html>

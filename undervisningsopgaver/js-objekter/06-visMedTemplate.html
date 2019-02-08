@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+
+    <div id="liste">
+
+    </div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+        //        function start() {
+
+        let dyrene = [{
+                "navn": "gris",
+                "type": "pattedyr",
+                "billede": "http://helf-kea.dk/test/gris.png",
+                "levested": "svinefarme"
+            },
+            {
+                "navn": "frø",
+                "type": "amfibie",
+                "billede": "http://helf-kea.dk/test/frog.png",
+                "levested": "skoven"
+            },
+            {
+                "navn": "ræv",
+                "type": "pattedyr",
+                "billede": "http://helf-kea.dk/test/fox.png",
+                "levested": "skoven"
+            },
+
+            {
+                "navn": "sild",
+                "type": "fisk",
+                "billede": "http://helf-kea.dk/test/sild.jpg",
+                "levested": "havet"
+            }
+
+            ,
+
+            {
+                "navn": "krokodille",
+                "type": "krybdyr",
+                "billede": "http://helf-kea.dk/test/kroko.jpg",
+                "levested": "sump"
+            }
+        ];
+
+
+
+
+
+        function start() {
+            let dest = document.querySelector("#liste");
+
+            function visDyr() {
+                dyrene.forEach(dyrene => {
+                    dest.innerHTML += `<div class="dyr">
+<h3>${dyrene.navn} </h3>
+<p>${dyrene.type} ${dyrene.levested} </p>
+<img src=${dyrene.billede}> </div> `;
+                })
+            }
+            visDyr();
+        }
+    </script>
+
+    <style>
+        #liste {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-gap: 1vw;
+
+        }
+
+        .dyr {
+            border: 1px solid black;
+            margin: 5px;
+            padding: 5px;
+        }
+
+
+
+
+        @media only screen and (min-width: 600px) {
+            #liste {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+
+</body>
+
+</html>
