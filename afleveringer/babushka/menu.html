@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bistro Babushka</title>
+
+    <style>
+        h1 {
+            text-align: center;
+            color: red;
+            background-color: orange;
+            padding-top: 60px;
+            padding-bottom: 60px;
+            margin-top: 0;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Bistro Babushka</h1>
+        <div id="menu">
+
+            <button class="filter valgt" data-hold="alle">Alle retter</button>
+            <button class="filter" data-hold="forretter">Forretter</button>
+            <button class="filter" data-hold="hovedretter">Hovedretter</button>
+            <button class="filter" data-hold="desserter">Desserter</button>
+            <button class="filter" data-hold="drikkevarer">Drikkevarer</button>
+            <button class="filter" data-hold="sideorders">Sideorders</button>
+        </div>
+    </header>
+
+    <div id="liste">
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", hentJson);
+
+        let retter = [];
+        let filter = "alle";
+
+        function start() {
+
+            let dest = document.querySelector("#liste");
+            let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1jxxxFoWBuMJ1qhQ9BQIAyKHmP38XtAF9_sQr0xo5JLo");
+            retter = await jsonData.json();
+            visRetter();
+        }
+        }
+    </script>
+
+</body>
+
+</html>
