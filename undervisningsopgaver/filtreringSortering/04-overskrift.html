@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personliste</title>
+
+    <style>
+        #liste {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 1vw;
+            text-align: center;
+            margin-top: 5px;
+
+
+        }
+
+        .person {
+            border: 3px solid pink;
+            margin: 5px;
+            padding: 5px;
+
+
+
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        h2 {
+            text-align: center;
+            color: lightcoral;
+        }
+
+        .menu {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        img {
+            width: 100px;
+        }
+
+        h3 {
+            color: lightcoral;
+        }
+
+        button {
+            border: solid 1px black;
+            padding: 5px;
+            margin: 5px;
+            border-radius: 15%
+        }
+
+        button.valgt {
+            background-color: red;
+        }
+
+        .filter {
+
+            padding: 8px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+
+
+
+        @media only screen and (min-width: 400px) {
+            #liste {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        @media only screen and (min-width: 600px) {
+            #liste {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+            #liste {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <h1>Alle</h1>
+    <div class="menu">
+        <button class="filter valgt" data-hold="alle">Alle</button>
+        <button class="filter" data-hold="a">Hold A</button>
+        <button class="filter" data-hold="b">Hold B</button>
+    </div>
+    <div id="liste">
+    </div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", hentJson);
+
+
+        let personer = [];
+        let filter = "alle";
+        async function hentJson() {
+            //henter data filen
+            const myJson = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1OLlD_GRoz71piHvnW306omRAyHS7vtLOILQt-K0YF_c ");
+            //den hentede data skal tolkes som json.
+            personer = await myJson.json();
+            //kald funktion der viser data i DOM
+            visPersoner();
+
+        }
+
+        function visPersoner() {
+            let dest = document.querySelector("#liste");
+            dest.innerHTML = ""; //  dest funktionen tømmes, så den er klar til ny brug.
+            personer.forEach(person => {
+                if (filter == "alle" || filter == person.hold) {
+                    dest.innerHTML += `
+                            <div class="person">
+                                <h2>${person.navn}</h2>
+                                <img src="${person.billede}" alt="${person.navn}"><br><br>
+                                <a href="https://github.com/${person.github}"> Link til GitHub</a>
+                                <p>Hold: ${person.hold}</p>
+                            </div>`;
+                }
+            })
+        }
+        document.querySelectorAll(".filter").forEach(elm => {
+            elm.addEventListener("click", filtrering);
+        })
+
+        function filtrering() {
+            document.querySelectorAll(".filter").forEach(but => {
+                but.classList.remove("valgt");
+            });
+            this.classList.add("valgt");
+            filter = this.getAttribute("data-hold");
+            document.querySelector("h1").textContent = this.textContent;
+
+            visPersoner();
+        }
+        hentJson();
+
+    </script>
+
+
+</body>
+
+</html>
