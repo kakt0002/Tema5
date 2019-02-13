@@ -4,7 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bistro Babushka</title>
+    <title>★ Bistro Babushka ★</title>
+    <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
 
     <style>
         h1 {
@@ -14,6 +16,7 @@
             padding-top: 60px;
             padding-bottom: 60px;
             margin-top: 0;
+            font-family: 'Russo One', sans-serif;
         }
 
         #liste {
@@ -66,17 +69,23 @@
             border: solid 1px black;
             padding: 5px;
             margin: 5px;
-            border-radius: 15%
+            border-radius: 15%;
+            cursor: pointer;
         }
 
         button.valgt {
             background-color: lightgray;
         }
 
+        p {
+            font-family: 'PT Sans', sans-serif;
+        }
+
 
 
         h2 {
             text-align: center;
+            font-family: 'Russo One', sans-serif;
         }
 
         /*POP UP MENUEN*/
@@ -97,6 +106,7 @@
             width: 70vw;
             margin: 2rem auto;
         }
+
     </style>
 </head>
 
@@ -109,7 +119,7 @@
     </div>
 
     <header>
-        <h1>Bistro Babushka</h1>
+        <h1>★ Bistro Babushka ★</h1>
         <div class="menu">
             <button class="filter valgt" data-hold="alle">Alle</button>
             <button class="filter" data-hold="forretter">Forretter</button>
@@ -186,6 +196,7 @@
         function close() {
             document.querySelector("#popup").style.display = "none";
         }
+
     </script>
 
     <footer>

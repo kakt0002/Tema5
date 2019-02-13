@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bistro Babushka</title>
+    <title>★ Bistro Babushka ★</title>
     <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
 
@@ -34,7 +34,12 @@
             margin: 5px;
             padding: 8px;
             background-color: lightgray;
+            cursor: pointer;
 
+        }
+
+        .ret:hover {
+            background-color: #eee;
         }
 
 
@@ -63,14 +68,20 @@
         }
 
         img {
-            width: 100px;
+            max-width: 100%;
         }
 
         button {
             border: solid 1px black;
             padding: 5px;
             margin: 5px;
-            border-radius: 15%
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #eee;
+
         }
 
         button.valgt {
@@ -86,6 +97,15 @@
         h2 {
             text-align: center;
             font-family: 'Russo One', sans-serif;
+        }
+
+        footer {
+            background-color: #eee;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 11px;
         }
 
         /*POP UP MENUEN*/
@@ -112,7 +132,7 @@
 
 <body>
     <header>
-        <h1>Bistro Babushka</h1>
+        <h1>★ Bistro Babushka ★</h1>
         <div class="menu">
             <button class="filter valgt" data-hold="alle">Alle</button>
             <button class="filter" data-hold="forretter">Forretter</button>
@@ -176,7 +196,7 @@
     </script>
 
     <footer>
-        <p>Adresse:<br>Grønnegade 97<br>1234 København K</p><br>
+        <p>Adresse:<br>Grønnegade 97<br>1234 København K</p>
         <p>Åbningstider:<br>Mandag-Fredag 10.30-22.00<br>Lørdag 12.00-23.00</p>
     </footer>
 </body>
