@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bistro Babushka</title>
+    <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+
+    <style>
+        h1 {
+            text-align: center;
+            color: red;
+            background-color: orange;
+            padding-top: 60px;
+            padding-bottom: 60px;
+            margin-top: 0;
+            font-family: 'Russo One', sans-serif;
+        }
+
+        #liste {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-gap: 1vw;
+            text-align: center;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .ret {
+
+            border: 1.5px solid black;
+            margin: 5px;
+            padding: 8px;
+            background-color: lightgray;
+
+        }
+
+
+
+        @media only screen and (min-width: 400px) {
+            #liste {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        @media only screen and (min-width: 600px) {
+            #liste {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+            #liste {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .menu {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        img {
+            width: 100px;
+        }
+
+        button {
+            border: solid 1px black;
+            padding: 5px;
+            margin: 5px;
+            border-radius: 15%
+        }
+
+        button.valgt {
+            background-color: lightgray;
+        }
+
+        p {
+            font-family: 'PT Sans', sans-serif;
+        }
+
+
+
+        h2 {
+            text-align: center;
+            font-family: 'Russo One', sans-serif;
+        }
+
+        /*POP UP MENUEN*/
+
+        #popup {
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            background-color: antiquewhite;
+            display: none;
+            overflow: scroll;
+        }
+
+        #indhold {
+
+            background-color: white;
+            width: 70vw;
+            margin: 2rem auto;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Bistro Babushka</h1>
+        <div class="menu">
+            <button class="filter valgt" data-hold="alle">Alle</button>
+            <button class="filter" data-hold="forretter">Forretter</button>
+            <button class="filter" data-hold="hovedretter">Hovedretter</button>
+            <button class="filter" data-hold="desserter">Desserter</button>
+            <button class="filter" data-hold="drikkevarer">Drikkevarer</button>
+            <button class="filter" data-hold="sideorders">Sideorders</button>
+        </div>
+    </header>
+
+    <div id="liste"></div>
+
+
+    <script>
+        let retter = [];
+        let filter = "alle";
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            let dest = document.querySelector("#liste");
+            async function hentJson() {
+                let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1jxxxFoWBuMJ1qhQ9BQIAyKHmP38XtAF9_sQr0xo5JLo");
+                retter = await jsonData.json();
+                visRetter();
+            }
+
+            function visRetter() {
+                dest.innerHTML = "";
+                retter.forEach(ret => {
+                    if (filter == "alle" || filter == ret.kategori) {
+                        let template =
+                            `<article class="ret">
+                                <img src="imgs/small/${ret.billede}-sm.jpg" alt="${ret.navn}">
+                                <h2>${ret.navn}</h2>
+                                <p>${ret.kort}</p>
+                                <p>Pris: ${ret.pris} kr.</p>
+                            </article>`;
+                        dest.insertAdjacentHTML("beforeend", template);
+                        dest.lastElementChild.addEventListener("click", () => {
+                            location.href = "nyside.html?id=" + ret.id;
+                        });
+                    }
+                });
+            } // function visRetter slut
+            hentJson();
+            document.querySelectorAll(".filter").forEach(but => {
+                but.addEventListener("click", filtrering);
+                console.log(filter);
+            })
+
+            function filtrering() {
+                document.querySelectorAll(".filter").forEach(but => {
+                    but.classList.remove("valgt"); // fordi man bruger classList behøver man ikke at skrive at det er en klasse med "."
+                });
+                this.classList.add("valgt");
+                filter = this.getAttribute("data-hold");
+                visRetter();
+            }
+        } // function start slut
+
+    </script>
+
+    <footer>
+        <p>Adresse:<br>Grønnegade 97<br>1234 København K</p><br>
+        <p>Åbningstider:<br>Mandag-Fredag 10.30-22.00<br>Lørdag 12.00-23.00</p>
+    </footer>
+</body>
