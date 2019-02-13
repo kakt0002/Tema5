@@ -14,17 +14,87 @@
             padding-top: 60px;
             padding-bottom: 60px;
             margin-top: 0;
+        }
 
+        #liste {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-gap: 1vw;
+            text-align: center;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .ret {
+
+            border: 1.5px solid black;
+            margin: 5px;
+            padding: 8px;
+
+        }
+
+
+
+        @media only screen and (min-width: 400px) {
+            #liste {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        @media only screen and (min-width: 600px) {
+            #liste {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+            #liste {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .menu {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        img {
+            width: 100px;
+        }
+
+        button {
+            border: solid 1px black;
+            padding: 5px;
+            margin: 5px;
+            border-radius: 15%
+        }
+
+        button.valgt {
+            background-color: red;
+        }
+
+        .filter {
+            padding: 8px;
+        }
+
+        h2 {
+            text-align: center;
         }
     </style>
 </head>
 
 <body>
+    <div id="popup">
+        <div id="luk">
+            <button> X </button>
+        </div>
+        <div id="indhold"></div>
+    </div>
+
     <header>
         <h1>Bistro Babushka</h1>
-        <div id="menu">
-
-            <button class="filter valgt" data-hold="alle">Alle retter</button>
+        <div class="menu">
+            <button class="filter valgt" data-hold="alle">Alle</button>
             <button class="filter" data-hold="forretter">Forretter</button>
             <button class="filter" data-hold="hovedretter">Hovedretter</button>
             <button class="filter" data-hold="desserter">Desserter</button>
@@ -33,25 +103,78 @@
         </div>
     </header>
 
-    <div id="liste">
-    </div>
+    <div id="liste"></div>
+
 
     <script>
-        document.addEventListener("DOMContentLoaded", hentJson);
-
         let retter = [];
         let filter = "alle";
+        document.addEventListener("DOMContentLoaded", start);
 
         function start() {
-
             let dest = document.querySelector("#liste");
-            let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1jxxxFoWBuMJ1qhQ9BQIAyKHmP38XtAF9_sQr0xo5JLo");
-            retter = await jsonData.json();
-            visRetter();
+            async function hentJson() {
+                let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1jxxxFoWBuMJ1qhQ9BQIAyKHmP38XtAF9_sQr0xo5JLo");
+                retter = await jsonData.json();
+                visRetter();
+            }
+
+            function visRetter() {
+                dest.innerHTML = "";
+                retter.forEach(ret => {
+                    if (filter == "alle" || filter == ret.kategori) {
+                        let template =
+                            `<article class="ret">
+                                <img src="imgs/small/${ret.billede}-sm.jpg" alt="${ret.navn}">
+                                <h2>${ret.navn}</h2>
+                                <p>${ret.kort}</p>
+                                <p>Pris: ${ret.pris} kr.</p>
+                            </article>`;
+                        dest.insertAdjacentHTML("beforeend", template);
+                        dest.lastElementChild.addEventListener("click", () => {
+                            visSingle(ret);
+                        });
+                    }
+                });
+            } // function visRetter slut
+            hentJson();
+            document.querySelectorAll(".filter").forEach(but => {
+                but.addEventListener("click", filtrering);
+                console.log(filter);
+            })
+
+            function filtrering() {
+                document.querySelectorAll(".filter").forEach(but => {
+                    but.classList.remove("valgt");
+                });
+                this.classList.add("valgt");
+                filter = this.getAttribute("data-hold");
+                visRetter();
+            }
         }
+
+        function visSingle(ret) {
+            document.querySelector("#indhold").innerHTML =
+                `<article class="ret">
+                    <img src="imgs/small/${ret.billede}-sm.jpg" alt="${ret.navn}">
+                    <h2>${ret.navn}</h2>
+                    <p>Oprindelse: ${ret.oprindelse}</p>
+                    <p>${ret.lang}</p>
+                    <p>Pris: ${ret.pris} kr.</p>
+                </article>`;
+            document.querySelector("#popup").style.display = "block";
+            document.querySelector("#popup #luk").addEventListener("click", close);
+        }
+
+        function close() {
+            document.querySelector("#popup").style.display = "none";
         }
     </script>
 
+    <footer>
+        <p>Adresse: Grønnegade 97<br>1234 København K</p><br>
+        <p>Åbningstider:<br>Mandag-Fredag: 10.30-22.00<br>Lørdag: 12.00-23.00</p>
+    </footer>
 </body>
 
 </html>
