@@ -128,11 +128,12 @@ img {
 
 .bookcontainer h3 {
     position: absolute;
-    font-family: 'Hiragino Mincho Pro', sans-serif;
+
     font-size: 2.8vh;
     top: 42vh;
     left: 19vh;
     color: #626262;
+    font-family: 'Hiragino Mincho Pro', sans-serif;
 }
 
 .deskmenu a {
@@ -145,6 +146,8 @@ header img {
     position: relative;
     left: 40vw;
 }
+
+
 
 /* unvisited link */
 a:link {
@@ -201,6 +204,36 @@ hide {
     position: relative;
     top: 25vw;
     right: 20vw;
+}
+
+
+button {
+
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: #626262;
+    font-family: 'Hiragino Mincho Pro', sans-serif;
+    font-size: 20px;
+    display: inline-block;
+
+
+}
+
+.menumad {
+    text-align: center;
+}
+
+
+button:hover {
+    background-color: #eee;
+
+}
+
+button.valgt {
+    text-decoration: underline;
 }
 
 
