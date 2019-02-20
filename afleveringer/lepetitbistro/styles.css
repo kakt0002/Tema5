@@ -8,12 +8,17 @@ body {
 
 }
 
+section {
+    background-color: #e9f4ea;
+}
+
 #headerboks {
     background-color: #97d29f;
     width: 100%;
     height: 3rem;
     border-top: solid #114511 1.5px;
     border-bottom: solid #114511 1.5px;
+
 }
 
 #streg {
@@ -23,6 +28,7 @@ body {
     border: solid #114511 1px;
 
 }
+
 
 
 
@@ -69,7 +75,7 @@ img {
 }
 
 .bookcontainer {
-    position: absolute;
+    position: relative;
     background-image: url(imgs/forside/Artboard%203.svg);
     background-size: 100%;
     background-repeat: no-repeat;
@@ -80,7 +86,7 @@ img {
 .bookcontainer h2 {
     position: absolute;
     font-size: 3vh;
-    top: 9vh;
+    top: 8vh;
     left: 13vh;
     font-family: 'Hiragino Mincho Pro', sans-serif;
     color: #626262;
@@ -104,7 +110,7 @@ img {
     font-family: 'Hiragino Mincho Pro', sans-serif;
     font-size: 2.8vh;
     top: 42vh;
-    left: 20vh;
+    left: 19vh;
     color: #626262;
 }
 
@@ -112,9 +118,31 @@ img {
     margin-left: 30px;
 }
 
+
+
 header img {
     position: relative;
     left: 40vw;
+}
+
+/* unvisited link */
+a:link {
+    color: #626262;
+}
+
+/* visited link */
+a:visited {
+    color: #626262;
+}
+
+/* mouse over link */
+a:hover {
+    color: lightslategrey;
+}
+
+/* selected link */
+a:active {
+    color: #626262;
 }
 
 /*BURGER MENU */
@@ -140,6 +168,55 @@ hide {
     font-size: 1.5em;
 }
 
+#omos img {
+    max-width: 100%;
+    transform: rotate(90deg);
+    position: relative;
+
+
+}
+
+#containercolumn {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    margin-left: 20vw;
+    margin-right: 20vw;
+    grid-gap: 10vw;
+    font-family: 'Hiragino Mincho Pro', sans-serif;
+    color: #626262;
+}
+
+#omos h1 {
+    font-family: 'Hiragino Mincho Pro', sans-serif;
+    color: #626262;
+    text-align: center;
+}
+
+#omos {
+    position: relative;
+    margin-bottom: 10vw;
+}
+
+#footer {
+    font-family: 'Hiragino Mincho Pro', sans-serif;
+    color: #626262;
+    background-color: #97d29f;
+    width: 100%;
+}
+
+#instafeed {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 40px;
+}
+
+#instafeed img {
+    width: 300px;
+    height: 300px;
+}
+
+
+
 
 
 /***************MEDIA QUIERIES TIL MENUERNE************* */
@@ -154,6 +231,13 @@ hide {
 
         display: block;
     }
+
+
+    #containercolumn {
+        grid-template-columns: repeat(1, 1fr);
+        text-align: justify;
+    }
+
 }
 
 @media only screen and (min-width: 600px) {
@@ -166,6 +250,8 @@ hide {
 
         display: none;
     }
+
+
 }
 
 @media only screen and (max-width: 600px) {
