@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Petit Bistro</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <header>
+
+        <img src="imgs/forside/logofinal.svg" alt="logo">
+
+        <nav class="mobilmenu hide">
+            <div id="menuknap">☰</div>
+            <br>
+            <ul id="menu" class="hidden">
+
+                <li> <a href="#splash">Forside</a></li>
+                <li><a href="#bookbord">Book bord</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="#omos">Om os</a></li>
+
+            </ul>
+            <div id="streg"></div>
+        </nav>
+
+        <nav class="deskmenu hide">
+            <div id="headerboks">
+                <a href="#splash">Forside</a>
+                <a href="#bookbord">Book bord</a>
+                <a href="menu.html">Menu</a>
+                <a href="#omos">Om os</a>
+            </div>
+
+
+        </nav>
+
+    </header>
+
+    <section id="splash">
+        <div class="containerdesksplash">
+
+
+            <img src="imgs/forside/finalsplashbillede.jpg" alt="splashbillede">
+            <h1>Bonjour!</h1>
+            <p>Le Petit Bistro serverer alt det, du forventer <br> af din lokale pariserbistro – midt i hjertet af Frederiksberg. </p>
+        </div>
+        <h1>Bonjour!</h1>
+        <p>Le Petit Bistro serverer alt det, du forventer <br> af din lokale pariserbistro – midt i hjertet af Frederiksberg. </p>
+    </section>
+    <section id="bookbord"></section>
+    <section id="omos">
+    </section>
+
+    <script>
+        window.addEventListener("load", sidenVises);
+
+        function sidenVises() {
+            console.log("siden vises!");
+            //registrer klik på menu-knap
+            document.querySelector("#menuknap").addEventListener("click", toggleMenu);
+
+        }
+
+        function toggleMenu() {
+            console.log("Toggle menu");
+            document.querySelector("#menu").classList.toggle("hidden");
+
+            let erSkjult = document.querySelector("#menu").classList.contains("hidden");
+
+            if (erSkjult == true) {
+
+                //menuen er nu skjult - ændr menuknap til burger
+                document.querySelector("#menuknap").textContent = "☰";
+            } else {
+                //menuen er nu vist - ændr menuknap til x
+                document.querySelector("#menuknap").textContent = "✕";
+            }
+        }
+    </script>
+    <footer>
+        <div id="instafeed">
+        </div>
+    </footer>
+
+
+
+</body>
+
+</html>
