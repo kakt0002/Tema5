@@ -62,12 +62,27 @@ img {
     font-family: 'Hiragino Mincho Pro', sans-serif;
     color: #626262;
     margin: 2rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 
+}
+
+
+.containermobilsplash p {
+    text-align: center;
+    font-size: 3vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .containermobilsplash h1 {
     text-align: center;
     font-size: 7vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .containerdesksplash {
@@ -172,8 +187,12 @@ hide {
 
 #omos img {
     max-width: 100%;
-    transform: rotate(90deg);
     position: relative;
+    background-size: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
 
 
 }
@@ -269,7 +288,7 @@ footer p {
 
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 800px) {
     .deskmenu {
         display: block;
 
@@ -283,7 +302,7 @@ footer p {
 
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
     .containerdesksplash p {
         display: none;
 
@@ -295,7 +314,7 @@ footer p {
     }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 800px) {
     .containermobilsplash p {
         display: none;
 
