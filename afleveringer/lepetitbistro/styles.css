@@ -1,6 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: 'Hiragino Mincho Pro', sans-serif;
+
 }
 
 #headerboks {
@@ -55,19 +60,61 @@ img {
 
 .containermobilsplash h1 {
     text-align: center;
+    font-size: 7vw;
 }
 
 .containerdesksplash {
     position: relative;
+
+}
+
+.bookcontainer {
+    position: absolute;
+    background-image: url(imgs/forside/Artboard%203.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 50vh;
+    height: 70vh;
+}
+
+.bookcontainer h2 {
+    position: absolute;
+    font-size: 3vh;
+    top: 9vh;
+    left: 13vh;
+    font-family: 'Hiragino Mincho Pro', sans-serif;
+    color: #626262;
+
+}
+
+
+
+.bookcontainer p {
+    position: absolute;
+    font-family: 'Hiragino Mincho Pro', sans-serif;
+    font-size: 2.3vh;
+    top: 17vh;
+    left: 14vh;
+    color: #626262;
+
+}
+
+.bookcontainer h3 {
+    position: absolute;
+    font-family: 'Hiragino Mincho Pro', sans-serif;
+    font-size: 2.8vh;
+    top: 42vh;
+    left: 20vh;
+    color: #626262;
 }
 
 .deskmenu a {
     margin-left: 30px;
 }
 
-nav img {
+header img {
     position: relative;
-    left: 612px;
+    left: 40vw;
 }
 
 /*BURGER MENU */
