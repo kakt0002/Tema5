@@ -12,7 +12,7 @@
 <body>
     <header>
 
-        <img src="imgs/forside/logofinal.svg" alt="logo">
+        <a href="forside.html#splash"><img src="imgs/forside/logofinal.svg" alt="logo"></a>
 
         <nav class="mobilmenu hide">
             <div id="menuknap">☰</div>
@@ -34,14 +34,15 @@
 
         <nav class="deskmenu hide">
             <div id="headerboks">
-                <a href="#splash">Forside</a>
-                <a href="#bookbord">Book bord</a>
+                <a href="forside.html#splash">Forside</a>
+                <a href="forside.html#bookbord">Book bord</a>
                 <a href="menu.html">Menu</a>
-                <a href="#omos">Om os</a>
+                <a href="forside.html#omos">Om os</a>
             </div>
 
 
         </nav>
+
 
     </header>
 
@@ -55,6 +56,38 @@
         </main>
 
         <script>
+            window.addEventListener("load", sidenVises);
+
+            function sidenVises() {
+                console.log("siden vises!");
+                //registrer klik på menu-knap
+                document.querySelector("#menuknap").addEventListener("click", toggleMenu);
+
+
+            }
+
+            function toggleMenu() {
+                console.log("Toggle menu");
+                document.querySelector("#menu").classList.toggle("hidden");
+
+                let erSkjult = document.querySelector("#menu").classList.contains("hidden");
+
+                if (erSkjult == true) {
+
+                    //menuen er nu skjult - ændr menuknap til burger
+                    document.querySelector("#menuknap").textContent = "☰";
+                } else {
+                    //menuen er nu vist - ændr menuknap til x
+                    document.querySelector("#menuknap").textContent = "✕";
+                }
+                document.querySelector("#menu").addEventListener("click", lukmenu);
+            }
+
+            function lukmenu() {
+                console.log("Luk menu");
+                document.querySelector("#menu").classList.add("hidden");
+            }
+
             let retter = [];
             let urlParams = new URLSearchParams(window.location.search)
             let id = urlParams.get("id");
@@ -81,12 +114,12 @@
                             dest.insertAdjacentHTML("beforeend", template);
                         }
                     });
-                } // function visRetter slut
+                }
                 document.querySelector("#tilbage").addEventListener("click", () => {
                     location.href = "menu.html";
                 })
                 hentJson();
-            } // function start slut
+            }
         </script>
 
         <footer>
@@ -121,7 +154,6 @@
             </div>
         </footer>
 
-        </footer>
     </body>
 
 </html>

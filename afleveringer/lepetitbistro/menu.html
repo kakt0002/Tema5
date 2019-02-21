@@ -12,7 +12,7 @@
 <body>
     <header>
 
-        <img src="imgs/forside/logofinal.svg" alt="logo">
+        <a href="#splash"><img src="imgs/forside/logofinal.svg" alt="logo"></a>
 
         <nav class="mobilmenu hide">
             <div id="menuknap">☰</div>
@@ -51,7 +51,8 @@
 
 
         <div class="menu">
-            <button class="filter valgt" data-hold="morgen">Morgen</button>
+            <button class="filter valgt" data-hold="alle">Alle</button>
+            <button class="filter" data-hold="morgen">Morgen</button>
             <button class="filter" data-hold="frokost">Frokost</button>
             <button class="filter" data-hold="aften">Aften</button>
             <button class="filter" data-hold="desserter">Desserter</button>
@@ -63,6 +64,38 @@
 
 
     <script>
+        window.addEventListener("load", sidenVises);
+
+        function sidenVises() {
+            console.log("siden vises!");
+            //registrer klik på menu-knap
+            document.querySelector("#menuknap").addEventListener("click", toggleMenu);
+
+
+        }
+
+        function toggleMenu() {
+            console.log("Toggle menu");
+            document.querySelector("#menu").classList.toggle("hidden");
+
+            let erSkjult = document.querySelector("#menu").classList.contains("hidden");
+
+            if (erSkjult == true) {
+
+                //menuen er nu skjult - ændr menuknap til burger
+                document.querySelector("#menuknap").textContent = "☰";
+            } else {
+                //menuen er nu vist - ændr menuknap til x
+                document.querySelector("#menuknap").textContent = "✕";
+            }
+            document.querySelector("#menu").addEventListener("click", lukmenu);
+        }
+
+        function lukmenu() {
+            console.log("Luk menu");
+            document.querySelector("#menu").classList.add("hidden");
+        }
+
         let retter = [];
         let filter = "alle";
         document.addEventListener("DOMContentLoaded", start);
@@ -108,7 +141,6 @@
                 visRetter();
             }
         }
-
     </script>
 </body>
 

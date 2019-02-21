@@ -31,9 +31,10 @@ header {
     height: 3rem;
     border-top: solid #114511 1.5px;
     border-bottom: solid #114511 1.5px;
-
-
+    padding-top: 1vw;
 }
+
+
 
 p {
     font-family: 'Hiragino Mincho Pro', sans-serif;
@@ -44,8 +45,6 @@ p {
 #streg {
     background-color: #97d29f;
     width: 100%;
-
-    border: solid #114511 1px;
 
 }
 
@@ -60,7 +59,7 @@ img {
     color: #626262;
     position: absolute;
     left: 800px;
-    top: 290px;
+    top: 200px;
     font-size: 40px;
 
 }
@@ -70,10 +69,12 @@ img {
     color: #626262;
     position: absolute;
     left: 800px;
-    top: 400px;
+    top: 300px;
     font-size: 25px;
 
 }
+
+
 
 
 .containermobilsplash {
@@ -106,6 +107,12 @@ img {
 .containerdesksplash {
     position: relative;
 
+}
+
+.bookcontainer img {
+    width: 4.5vh;
+    position: relative;
+    left: 12vh;
 }
 
 .bookcontainer {
@@ -397,11 +404,14 @@ img {
     font-family: 'Hiragino Mincho Pro', sans-serif;
     color: #626262;
     text-align: center;
+    margin-top: 5vw;
+    margin-bottom: 5vw;
 }
 
 #omos {
     position: relative;
-    margin-bottom: 10vw;
+    margin-bottom: 5vw;
+    margin-top: 5vw;
 }
 
 footer {
@@ -409,7 +419,7 @@ footer {
     color: #626262;
     background-color: #C5E4C9;
     width: 100%;
-padding-top: 5vw;
+    padding-top: 5vw;
 
 }
 
@@ -468,43 +478,48 @@ footer p {
         grid-gap: 2vw;
     }
 
+    #streg {
+        border: solid #114511 1px;
+    }
+}
 
 
 
-    @media only screen and (min-width: 700px) {
-        .deskmenu {
-            display: block;
 
-        }
-
-        .mobilmenu {
-
-            display: none;
-        }
-
+@media only screen and (min-width: 700px) {
+    .deskmenu {
+        display: block;
 
     }
 
-    @media only screen and (max-width: 800px) {
-        .containerdesksplash p {
-            display: none;
+    .mobilmenu {
 
-        }
-
-        .containerdesksplash h1 {
-            display: none;
-
-        }
+        display: none;
     }
 
-    @media only screen and (min-width: 800px) {
-        .containermobilsplash p {
-            display: none;
 
-        }
+}
 
-        .containermobilsplash h1 {
-            display: none;
+@media only screen and (max-width: 800px) {
+    .containerdesksplash p {
+        display: none;
 
-        }
     }
+
+    .containerdesksplash h1 {
+        display: none;
+
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .containermobilsplash p {
+        display: none;
+
+    }
+
+    .containermobilsplash h1 {
+        display: none;
+
+    }
+}
