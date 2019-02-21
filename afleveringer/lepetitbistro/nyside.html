@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Petit Bistro</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <header>
+
+        <img src="imgs/forside/logofinal.svg" alt="logo">
+
+        <nav class="mobilmenu hide">
+            <div id="menuknap">☰</div>
+            <ul id="menu" class="hidden">
+                <div class="menubokse">
+                    <img src="imgs/forside/box.svg" alt="box1">
+                    <img src="imgs/forside/box.svg" alt="box2">
+                    <img src="imgs/forside/box.svg" alt="box3">
+                    <img src="imgs/forside/box.svg" alt="box4">
+                    <li><a href="#splash">Forside</a></li>
+                    <li><a href="#omos">Om os</a></li>
+                    <li><a href="#bookbord">Book bord</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                </div>
+
+            </ul>
+            <div id="streg"></div>
+        </nav>
+
+        <nav class="deskmenu hide">
+            <div id="headerboks">
+                <a href="#splash">Forside</a>
+                <a href="#bookbord">Book bord</a>
+                <a href="menu.html">Menu</a>
+                <a href="#omos">Om os</a>
+            </div>
+
+
+        </nav>
+
+    </header>
+
+
+    <body>
+        <main id="single">
+            <div id="tilbage">
+                <button> TILBAGE </button>
+            </div>
+            <section id="indhold"></section>
+        </main>
+
+        <script>
+            let retter = [];
+            let urlParams = new URLSearchParams(window.location.search)
+            let id = urlParams.get("id");
+            document.addEventListener("DOMContentLoaded", start);
+
+            function start() {
+                async function hentJson() {
+                    let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1lyfn_4JprIUE2LLA_vbnOFhD_txNaOC1Wnt-iM5r1OU");
+                    retter = await jsonData.json();
+                    visRetter();
+                }
+
+                function visRetter() {
+                    let dest = document.querySelector("#indhold");
+                    dest.innerHTML = "";
+                    retter.forEach(ret => {
+                        if (id == ret.id) {
+                            let template =
+                                `<article class="ret">
+                                <img src="imgs/${ret.billede}.png" alt="${ret.navn}">
+                                <p>${ret.lang}</p>
+                                <p>Pris: ${ret.pris} kr.</p>
+                             </article>`;
+                            dest.insertAdjacentHTML("beforeend", template);
+                        }
+                    });
+                } // function visRetter slut
+                document.querySelector("#tilbage").addEventListener("click", () => {
+                    location.href = "menu.html";
+                })
+                hentJson();
+            } // function start slut
+        </script>
+
+        <footer>
+            <div id="containercolumn2">
+                <div class="column">Le Petit Bistro
+                    <br><br>
+                    Parisergade 79<br>
+                    1120 Frederiksberg C.<br>
+                    <br>
+                    +4500119933<br>
+                    lepetitbistro@info.dk
+
+                </div>
+
+
+
+
+                <div class="column">
+                    Åbningstider:
+                    <br>
+
+                    Man. – Tor. 11.00-24.00.
+                    Fre. – Lør. 11.00-01.00
+                    Søndag 11.00-23.00
+                    <br><br>
+                    Køkken:
+                    <br>
+                    Man – Fre. 11.30-15.00 / 17.30-22.30
+                    Lørdag 11.30-15.30 / 17.30-22.30
+                    Søndag 11.30-15.30 / 17.30-21.30
+                </div>
+            </div>
+        </footer>
+
+        </footer>
+    </body>
+
+</html>

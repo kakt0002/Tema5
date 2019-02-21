@@ -247,13 +247,18 @@ button {
     text-align: center;
 }
 
-button:hover {
-    background-color: #eee;
-
-}
+/*
+button:hover {}
+*/
 
 button.valgt {
     text-decoration: underline;
+}
+
+#indhold {
+
+    width: 30vw;
+    margin: 2rem auto;
 }
 
 
