@@ -12,36 +12,38 @@
 <body>
     <header>
 
-        <a href="forside.html#splash"><img src="imgs/forside/logofinal.svg" alt="logo"></a>
+        <div class="logo"><a href="forside.html#splash"><img src="imgs/forside/logofinal.svg" alt="logo"></a>
 
-        <nav class="mobilmenu hide">
-            <div id="menuknap">☰</div>
-            <ul id="menu" class="hidden">
-                <div class="menubokse">
-                    <img src="imgs/forside/box.svg" alt="box1">
-                    <img src="imgs/forside/box.svg" alt="box2">
-                    <img src="imgs/forside/box.svg" alt="box3">
-                    <img src="imgs/forside/box.svg" alt="box4">
-                    <li><a href="#splash">Forside</a></li>
-                    <li><a href="#omos">Om os</a></li>
-                    <li><a href="#bookbord">Book bord</a></li>
+            <nav class="mobilmenu hide">
+                <div id="menuknap">☰</div>
+                <ul id="menu" class="hidden">
+                    <div class="menubokse">
+                        <img src="imgs/forside/box.svg" alt="box1">
+                        <img src="imgs/forside/box.svg" alt="box2">
+                        <img src="imgs/forside/box.svg" alt="box3">
+                        <img src="imgs/forside/box.svg" alt="box4">
+
+                    </div>
+                    <li><a href="forside.html#splash">Forside</a></li>
+                    <li><a href="forside.html#bookbord">Book bord</a></li>
                     <li><a href="menu.html">Menu</a></li>
+                    <li><a href="forside.html#omos">Om os</a></li>
+                    <li>
+
+                </ul>
+                <div id="streg"></div>
+            </nav>
+
+            <nav class="deskmenu hide">
+                <div id="headerboks">
+                    <a href="forside.html#splash">Forside</a>
+                    <a href="forside.html#bookbord">Book bord</a>
+                    <a href="menu.html">Menu</a>
+                    <a href="forside.html#omos">Om os</a>
                 </div>
 
-            </ul>
-            <div id="streg"></div>
-        </nav>
 
-        <nav class="deskmenu hide">
-            <div id="headerboks">
-                <a href="forside.html#splash">Forside</a>
-                <a href="forside.html#bookbord">Book bord</a>
-                <a href="menu.html">Menu</a>
-                <a href="forside.html#omos">Om os</a>
-            </div>
-
-
-        </nav>
+            </nav>
 
 
     </header>
@@ -86,6 +88,7 @@
             function lukmenu() {
                 console.log("Luk menu");
                 document.querySelector("#menu").classList.add("hidden");
+                document.querySelector("#menuknap").textContent = "☰";
             }
 
             let retter = [];
