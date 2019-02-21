@@ -43,15 +43,18 @@
 
         </nav>
 
-        <div class="menumad">
-            <h1>Menu</h1>
-            <button class="filter" data-hold="morgen">Morgen</button>
+
+
+        <div class="menu">
+            <button class="filter valgt" data-hold="morgen">Morgen</button>
             <button class="filter" data-hold="frokost">Frokost</button>
             <button class="filter" data-hold="aften">Aften</button>
             <button class="filter" data-hold="desserter">Desserter</button>
+
         </div>
     </header>
 
+    <div id="liste"></div>
 
 
     <script>
@@ -62,7 +65,7 @@
         function start() {
             let dest = document.querySelector("#liste");
             async function hentJson() {
-                let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1lyfn_4JprIUE2LLA_vbnOFhD_txNaOC1Wnt-iM5r1OU/edit#gid=0");
+                let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1lyfn_4JprIUE2LLA_vbnOFhD_txNaOC1Wnt-iM5r1OU");
                 retter = await jsonData.json();
                 visRetter();
             }
@@ -73,8 +76,8 @@
                     if (filter == "alle" || filter == ret.kategori) {
                         let template =
                             `<article class="ret">
-                                <img src="imgs/${ret.billede}-sm.jpg" alt="${ret.navn}">
-                                <h2>${ret.navn}</h2>
+                                <img src="imgs/${ret.billede}.png" alt="${ret}">
+
                                 <p>${ret.kort}</p>
                                 <p>Pris: ${ret.pris} kr.</p>
                             </article>`;
@@ -99,7 +102,8 @@
                 filter = this.getAttribute("data-hold");
                 visRetter();
             }
-        } // function start slut
+        }
     </script>
 </body>
+
 </html>
