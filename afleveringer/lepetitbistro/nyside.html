@@ -73,10 +73,10 @@
                     retter.forEach(ret => {
                         if (id == ret.id) {
                             let template =
-                                `<article class="ret">
+                                `<article class="retsingle">
                                 <img src="imgs/${ret.billede}.png" alt="${ret.navn}">
-                                <p>${ret.lang}</p>
-                                <p>Pris: ${ret.pris} kr.</p>
+                                <p>${ret.lang}
+                                Pris: ${ret.pris} kr.</p>
                              </article>`;
                             dest.insertAdjacentHTML("beforeend", template);
                         }
