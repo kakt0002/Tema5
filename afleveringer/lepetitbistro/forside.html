@@ -16,20 +16,20 @@
 
         <nav class="mobilmenu hide">
             <div id="menuknap">☰</div>
-            <ul id="menu" class="hidden">
+            <div id="menu" class="hidden">
                 <div class="menubokse">
                     <img src="imgs/forside/box.svg" alt="box1">
                     <img src="imgs/forside/box.svg" alt="box2">
                     <img src="imgs/forside/box.svg" alt="box3">
                     <img src="imgs/forside/box.svg" alt="box4">
                 </div>
-
-                <li><a href="#splash">Forside</a></li>
-                <li><a href="#omos">Om os</a></li>
-                <li><a href="#bookbord">Book bord</a></li>
-                <li><a href="menu.html">Menu</a></li>
-
-            </ul>
+                <ul>
+                    <li><a href="#splash">Forside</a></li>
+                    <li> <a href="#omos">Om os</a></li>
+                    <li><a href="#bookbord">Book bord</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                </ul>
+            </div>
             <div id="streg"></div>
         </nav>
 
@@ -124,6 +124,7 @@
             document.querySelector("#menu").classList.add("hidden");
             document.querySelector("#menuknap").textContent = "☰";
         }
+
     </script>
     <footer>
         <p>@lepetitbistro</p>
@@ -153,18 +154,18 @@
 
 
             <div class="column">
-                Åbningstider:
-                <br>
+                <p>Åbningstider:
+                    <br>
 
-                Man. – Tor. 11.00-24.00.
-                Fre. – Lør. 11.00-01.00
-                Søndag 11.00-23.00
-                <br><br>
-                Køkken:
-                <br>
-                Man – Fre. 11.30-15.00 / 17.30-22.30
-                Lørdag 11.30-15.30 / 17.30-22.30
-                Søndag 11.30-15.30 / 17.30-21.30
+                    Man. – Tor. 11.00-24.00<br>
+                    Fre. – Lør. 11.00-01.00<br>
+                    Søndag 11.00-23.00<br>
+                    <br><br>
+                    Køkken:
+                    <br>
+                    Man – Fre. 11.30-15.00 / 17.30-22.30<br>
+                    Lørdag 11.30-15.30 / 17.30-22.30<br>
+                    Søndag 11.30-15.30 / 17.30-21.30<br>
             </div>
         </div>
     </footer>
