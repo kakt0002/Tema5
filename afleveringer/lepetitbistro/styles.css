@@ -224,10 +224,10 @@ hide {
 }
 
 #menu a {
-    position: relative;
-    left: 30vw;
-    top: -48vw;
-    line-height: 4.5;
+    position: absolute;
+    left: 40vw;
+    padding-top: 2vw;
+
 
 }
 
@@ -239,9 +239,11 @@ hide {
     text-align: center;
 }
 
+/*
 .menubokse img {
     padding: 2vw;
 }
+*/
 
 
 
