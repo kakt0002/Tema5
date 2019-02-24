@@ -30,6 +30,14 @@ header {
 
 }
 
+h1 {
+    background-color: #e9f4ea;
+    margin: 0;
+    padding: 1vw;
+    font-family: 'Hiragino Mincho Pro', sans-serif;
+    color: #626262;
+}
+
 #headerboks {
     background-color: #C5E4C9;
     width: 100%;
@@ -38,6 +46,8 @@ header {
     border-bottom: solid #114511 1.5px;
     padding-top: 1vw;
 }
+
+
 
 
 
