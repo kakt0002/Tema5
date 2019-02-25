@@ -12,7 +12,7 @@
 <body>
     <header>
 
-        <div class="logo"><a href="forside.html#splash"><img src="imgs/forside/logofinal.svg" alt="logo"></a></div>
+        <div class="logo"><a href="forside.html"><img src="imgs/forside/Artboard%205.svg" alt="logo"></a></div>
 
         <nav class="mobilmenu hide">
             <div id="menuknap">☰</div>
@@ -20,15 +20,15 @@
 
                 <div class="menubokse">
                     <div id="boks1" class="boks">
-                        <a href="#splash">Forside</a>
+                        <a href="forside.html#splash">Forside</a>
                         <div class="Billede"><img src="imgs/forside/box.svg" alt="box1"></div>
                     </div>
                     <div id="boks2" class="boks">
-                        <a href="#omos">Om os</a>
+                        <a href="forside.html#omos">Om os</a>
                         <div class="Billede"><img src="imgs/forside/box.svg" alt="box2"></div>
                     </div>
                     <div id="boks3" class="boks">
-                        <a href="#bookbord">Book bord</a>
+                        <a href="forside.html#bookbord">Book bord</a>
                         <div class="Billede"><img src="imgs/forside/box.svg" alt="box3"></div>
                     </div>
                     <div id="boks4" class="boks">
@@ -43,15 +43,16 @@
 
         <nav class="deskmenu hide">
             <div id="headerboks">
-                <a href="forside.html">Forside</a>
-                <a href="forside.html">Book bord</a>
-                <a href="forside.html">Menu</a>
-                <a href="forside.html">Om os</a>
+                <!--                <a href="forside.html">Forside</a>-->
+                <a href="forside.html"><button class="filter menu" data-hold="forside">Forside</button></a>
+                <a href="forside.html#bookbord"><button class="filter menu" data-hold="bookbord">Book bord</button></a>
+                <a href="menu.html"><button class="filter valgt" data-hold="menu">Menu</button></a>
+                <a href="forside.html#omos"><button class="filter menu" data-hold="menu">Om os</button></a>
             </div>
         </nav>
 
         <div class="menumad">
-            <h1>Menu</h1>
+
 
 
             <div class="menu">
@@ -131,7 +132,7 @@
                         });
                     }
                 });
-            } // function visRetter slut
+            }
             hentJson();
             document.querySelectorAll(".filter").forEach(but => {
                 but.addEventListener("click", filtrering);
@@ -140,13 +141,14 @@
 
             function filtrering() {
                 document.querySelectorAll(".filter").forEach(but => {
-                    but.classList.remove("valgt"); // fordi man bruger classList behøver man ikke at skrive at det er en klasse med "."
+                    but.classList.remove("valgt");
                 });
                 this.classList.add("valgt");
                 filter = this.getAttribute("data-hold");
                 visRetter();
             }
         }
+
     </script>
     <footer>
         <div id="containercolumn2">

@@ -12,7 +12,7 @@
 <body>
     <header>
 
-        <div class="logo"><a href="forside.html#splash"><img src="imgs/forside/logofinal.svg" alt="logo"></a></div>
+        <div class="logo"><a href="forside.html#splash"><img src="imgs/forside/Artboard%205.svg" alt="logo"></a></div>
 
         <nav class="mobilmenu hide">
             <div id="menuknap">☰</div>
@@ -20,15 +20,15 @@
 
                 <div class="menubokse">
                     <div id="boks1" class="boks">
-                        <a href="#splash">Forside</a>
+                        <a href="forside.html#splash">Forside</a>
                         <div class="Billede"><img src="imgs/forside/box.svg" alt="box1"></div>
                     </div>
                     <div id="boks2" class="boks">
-                        <a href="#omos">Om os</a>
+                        <a href="forside.html#omos">Om os</a>
                         <div class="Billede"><img src="imgs/forside/box.svg" alt="box2"></div>
                     </div>
                     <div id="boks3" class="boks">
-                        <a href="#bookbord">Book bord</a>
+                        <a href="forside.html#bookbord">Book bord</a>
                         <div class="Billede"><img src="imgs/forside/box.svg" alt="box3"></div>
                     </div>
                     <div id="boks4" class="boks">
@@ -39,18 +39,20 @@
                 </div>
             </div>
         </nav>
-<div id="streg"></div>
+        <div id="streg"></div>
 
         <nav class="deskmenu hide">
             <div id="headerboks">
-                <a href="#splash">Forside</a>
-                <a href="#bookbord">Book bord</a>
-                <a href="menu.html">Menu</a>
-                <a href="#omos">Om os</a>
+                <!--                <a href="forside.html">Forside</a>-->
+                <a href="forside.html"><button class="filter valgt" data-hold="forside">Forside</button></a>
+                <a href="forside.html#bookbord"><button class="filter menu" data-hold="bookbord">Book bord</button></a>
+                <a href="menu.html"><button class="filter menu" data-hold="menu">Menu</button></a>
+                <a href="forside.html#omos"><button class="filter menu" data-hold="menu">Om os</button></a>
             </div>
-
-
         </nav>
+
+
+
 
     </header>
 
@@ -94,11 +96,14 @@
 
                 <div class="column">Og så står vi tidligt op – for præcis som franskmændene kan du starte dagen med en hurtig espresso og en sprød croissant eller det store morgenmadsudtræk.
 
-                    Resten af dagen frister vi med østers, tarte flambee, rørt tatar, steak frites og alt det andet, der hører sig til på en ægte bistro.</div>
+                    Resten af dagen frister vi med østers, tarte flambee, rørt tatar, steak frites og alt det andet, der hører sig til på en ægte bistro.
+
+                    <br>
+                    <a href="menu.html">Se vores menu her!</a>
+                </div>
             </div>
         </section>
     </div>
-
     <script>
         window.addEventListener("load", sidenVises);
 
@@ -133,10 +138,55 @@
             document.querySelector("#menuknap").textContent = "☰";
         }
 
+        let retter = [];
+        let filter = "alle";
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            let dest = document.querySelector("#liste");
+            async function hentJson() {
+                let jsonData = await fetch("https://mandalskeawebspace.dk/claude_php/clean_up_spreadsheet.php?id=1lyfn_4JprIUE2LLA_vbnOFhD_txNaOC1Wnt-iM5r1OU");
+                retter = await jsonData.json();
+                visRetter();
+            }
+
+            function visRetter() {
+                dest.innerHTML = "";
+                retter.forEach(ret => {
+                    if (filter == "alle" || filter == ret.kategori) {
+                        let template =
+                            `<article class="ret zoom">
+                        <img src="imgs/${ret.billede}.png" alt="${ret}">
+
+                        <p>${ret.kort}</p>
+                        <p>${ret.pris} kr.</p>
+                    </article>`;
+                        dest.insertAdjacentHTML("beforeend", template);
+                        dest.lastElementChild.addEventListener("click", () => {
+                            location.href = "nyside.html?id=" + ret.id;
+                        });
+                    }
+                });
+            }
+            hentJson();
+            document.querySelectorAll(".filter").forEach(but => {
+                but.addEventListener("click", filtrering);
+                console.log(filter);
+            })
+
+            function filtrering() {
+                document.querySelectorAll(".filter").forEach(but => {
+                    but.classList.remove("valgt");
+                });
+                this.classList.add("valgt");
+                filter = this.getAttribute("data-hold");
+                visRetter();
+            }
+        }
     </script>
     <footer>
-        <p>@lepetitbistro</p>
         <div id="instafeed">
+            <p>@lepetitbistro</p>
             <img src="imgs/instafeed/0c0c841ddd4b5f052231398b3ef1b995%202.jpg" alt="insta1">
             <img src="imgs/instafeed/99a6828b1c0e9585b6e8209c13eec68a%202.jpg" alt="insta2">
             <img src="imgs/instafeed/les_trois_cochons_03_171006_072922%202.jpg" alt="insta3">
@@ -148,13 +198,14 @@
         </div>
 
         <div id="containercolumn2">
-            <div class="column">Le Petit Bistro
-                <br><br>
-                Parisergade 79<br>
-                1120 Frederiksberg C.<br>
-                <br>
-                +4500119933<br>
-                lepetitbistro@info.dk
+            <div class="column">
+                <p>Le Petit Bistro
+                    <br><br>
+                    Parisergade 79<br>
+                    1120 Frederiksberg C.<br>
+                    <br>
+                    +4500119933<br>
+                    lepetitbistro@info.dk</p>
 
             </div>
 
