@@ -14,25 +14,7 @@
 
         <div class="logo"><a href="forside.html#splash"><img src="imgs/forside/Artboard%205.svg" alt="logo"></a></div>
 
-        <!--
-        <nav class="mobilmenu hide">
-            <div id="menuknap">☰</div>
-            <div id="menu" class="hidden">
-                <div class="menubokse">
-                    <img src="imgs/forside/box.svg" alt="box1">
-                    <img src="imgs/forside/box.svg" alt="box2">
-                    <img src="imgs/forside/box.svg" alt="box3">
-                    <img src="imgs/forside/box.svg" alt="box4">
-                </div>
-                <ul>
-                    <li><a href="#splash">Forside</a></li>
-                    <li> <a href="#omos">Om os</a></li>
-                    <li><a href="#bookbord">Book bord</a></li>
-                    <li><a href="menu.html">Menu</a></li>
-                </ul>
-            </div>
 
--->
 
         <nav class="mobilmenu hide">
             <div id="menuknap">☰</div>
@@ -64,10 +46,14 @@
         <nav class="deskmenu hide">
             <div id="headerboks">
 
-                <a href="forside.html"><button class="filter menu" data-hold="forside">Forside</button></a>
-                <a href="forside.html#bookbord"><button class="filter menu" data-hold="bookbord">Book bord</button></a>
-                <a href="menu.html"><button class="filter valgt" data-hold="menu">Menu</button></a>
-                <a href="forside.html#omos"><button class="filter menu" data-hold="menu">Om os</button></a>
+
+                <button onclick="window.location.href = `forside.html` " class="filter menu" data-hold="bookbord">Forside</button>
+                <button onclick="window.location.href = `forside.html#omos` " class="filter menu" data-hold="bookbord">Om os</button>
+                <button onclick="window.location.href = `forside.html#bookbord` " class="filter menu" data-hold="bookbord">Book bord</button>
+                <button onclick="window.location.href = `menu.html` " class="filter menu" data-hold="bookbord">Menukort</button>
+
+
+
             </div>
         </nav>
 

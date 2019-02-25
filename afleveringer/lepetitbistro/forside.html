@@ -43,11 +43,15 @@
 
         <nav class="deskmenu hide">
             <div id="headerboks">
-                <!--                <a href="forside.html">Forside</a>-->
-                <a href="forside.html"><button class="filter valgt" data-hold="forside">Forside</button></a>
-                <a href="forside.html#bookbord"><button class="filter menu" data-hold="bookbord">Book bord</button></a>
-                <a href="menu.html"><button class="filter menu" data-hold="menu">Menu</button></a>
-                <a href="forside.html#omos"><button class="filter menu" data-hold="menu">Om os</button></a>
+
+
+                <button onclick="window.location.href = `forside.html` " class="filter menu valgt" data-hold="bookbord">Forside</button>
+                <button onclick="window.location.href = `forside.html#omos` " class="filter menu" data-hold="bookbord">Om os</button>
+                <button onclick="window.location.href = `forside.html#bookbord` " class="filter menu" data-hold="bookbord">Book bord</button>
+                <button onclick="window.location.href = `menu.html` " class="filter menu" data-hold="bookbord">Menukort</button>
+
+
+
             </div>
         </nav>
 

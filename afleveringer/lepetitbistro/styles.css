@@ -177,11 +177,12 @@ img {
 
 .deskmenu a {
     position: relative;
-    top: -7vw;
+    top: -10vw;
     left: 50vw;
     z-index: 2;
     padding: 2vw;
     font-size: 1.8vw;
+
 }
 
 .logo img {
@@ -292,6 +293,10 @@ button {
     font-family: 'Hiragino Mincho Pro', sans-serif;
     font-size: 25px;
     background: none;
+    z-index: 2;
+    position: relative;
+    top: -10vw;
+    left: 45vw;
 }
 
 
