@@ -17,6 +17,10 @@ section {
     background-color: #e9f4ea;
 }
 
+button:focus {
+    outline: 0;
+}
+
 header {
     background-color: white;
 }
@@ -27,7 +31,8 @@ header {
 
 #tilbage button {
     font-family: 'Hiragino Mincho Pro', sans-serif;
-    text-decoration: underline;
+    color: #626262;
+    font-size: 3vw;
 
 }
 
@@ -65,6 +70,11 @@ p {
     width: 100%;
 
 }
+
+#streg2 {
+    display: none;
+}
+
 
 
 
@@ -128,9 +138,30 @@ img {
 }
 
 .bookcontainer img {
-    width: 4.5vh;
+    width: 4vh;
     position: relative;
-    left: 12vh;
+    left: 9vh;
+}
+
+.tekst img {
+    width: 13vw;
+    margin: 0;
+    position: absolute;
+    left: 27vw;
+
+}
+
+.linje1 {
+    width: 13vw;
+    margin: 0;
+    position: absolute;
+    left: 0vw;
+    top: 81vw;
+}
+
+.tekst {
+    padding: -20vw;
+    margin-top: 5vw;
 }
 
 .bookcontainer {
@@ -138,16 +169,33 @@ img {
     background-image: url(imgs/forside/Artboard%203.svg);
     background-size: 100%;
     background-repeat: no-repeat;
-    width: 50vh;
-    height: 70vh;
-    margin: 0 auto;
+    width: 45vh;
+    height: 65vh;
+    margin-top: 5vw;
+
 }
 
-.bookcontainer h2 {
+#bookbord {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 20vw;
+    margin-right: 20vw;
+    grid-gap: 10vw;
+    padding-bottom: 10vw;
+}
+
+#bookbord h2 {
+    font-family: 'Hiragino Mincho Pro', sans-serif;
+    color: #626262;
+    margin-top: 10vw;
+    font-size: 2vw;
+}
+
+.bookcontainer h3 {
     position: absolute;
     font-size: 3vh;
-    top: 8vh;
-    left: 13vh;
+    top: 5vh;
+    left: 11vh;
     font-family: 'Hiragino Mincho Pro', sans-serif;
     color: #626262;
 
@@ -159,18 +207,18 @@ img {
     position: absolute;
     font-family: 'Hiragino Mincho Pro', sans-serif;
     font-size: 2.3vh;
-    top: 17vh;
+    top: 14.5vh;
     left: 14vh;
     color: #626262;
 
 }
 
-.bookcontainer h3 {
+.bookcontainer h4 {
     position: absolute;
 
     font-size: 2.8vh;
-    top: 42vh;
-    left: 19vh;
+    top: 39vh;
+    left: 16vh;
     color: #626262;
     font-family: 'Hiragino Mincho Pro', sans-serif;
 }
@@ -276,7 +324,7 @@ hide {
 
 button {
 
-    padding: 5px;
+    padding: px;
     margin: 5px;
     cursor: pointer;
     border: none;
@@ -296,7 +344,7 @@ button {
     z-index: 2;
     position: relative;
     top: -10vw;
-    left: 45vw;
+    left: 60vw;
 }
 
 
@@ -387,23 +435,7 @@ button.menu {
 
 
 
-@media only screen and (min-width: 400px) {
-    #liste {
-        grid-template-columns: repeat(1, 1fr);
-    }
-}
 
-@media only screen and (min-width: 600px) {
-    #liste {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media only screen and (min-width: 768px) {
-    #liste {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
 
 .menu {
     text-align: center;
@@ -515,9 +547,6 @@ footer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 40px;
-
-
-
 }
 
 #instafeed img {
@@ -554,13 +583,48 @@ footer p {
 
     }
 
-    .deskmenu a {
+    .linje1 {
+        display: none;
+    }
+
+    .tekst img {
+        width: 30vw;
+        position: absolute;
+        left: 40vw;
+    }
+
+    #streg2 {
+        display: inline-block;
+        border: solid #6A9C4A 1px;
+        width: 70vw;
+        margin-top: 4vw;
+        left: 15vw;
+        position: absolute;
+    }
+
+    .deskmenu button {
         position: relative;
         top: -10vw;
-        left: 42vw;
+        left: 44vw;
         z-index: 2;
         padding: 0.5vw;
         font-size: 1.8vw;
+    }
+
+    #bookbord {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+
+        text-align: center;
+    }
+
+    #bookbord h2 {
+        font-size: 3vw;
+
+    }
+
+    #bookbord p {
+        font-size: 2.9vw;
     }
 
     button.valgt {
@@ -571,9 +635,6 @@ footer p {
         font-size: 13px;
     }
 
-
-
-
     #single article {
         grid-template-columns: repeat(1, 1fr);
         grid-gap: 2vw;
@@ -583,111 +644,178 @@ footer p {
         max-width: 300px;
     }
 
-    @media only screen and (max-width: 600px) {
-        .deskmenu {
-            display: none;
+    .column {
+        line-height: 3vw;
+    }
 
-        }
+    footer p {
+        line-height: 3vw;
+    }
+}
 
-        .mobilmenu {
+@media only screen and (max-width: 600px) {
+    .deskmenu {
+        display: none;
 
-            display: block;
-        }
+    }
 
-        .menumad {
-            grid-template-columns: repeat(1, 1fr);
-        }
+    .mobilmenu {
 
-        #containercolumn {
-            grid-template-columns: repeat(1, 1fr);
-            text-align: justify;
-        }
-
-        #instafeed {
-            display: none;
-
-        }
-
-        #single article {
-            grid-template-columns: repeat(1, 1fr);
-            grid-gap: 2vw;
-            margin: auto;
-
-        }
-
-        #streg {
-            border: solid #6A9C4A 1px;
-        }
-
-
-
-
-        .logo {
-            text-align: center;
-
-        }
-
-        .logo img {
-            width: 40vw;
-            height: 30vw;
-        }
-
-        #containercolumn {
-            line-height: 25px;
-        }
-
-        #containercolumn2 p {
-            line-height: 20px;
-            font-size: 12px;
-            width: 20vw;
-        }
-
-
-
-        #single img {
-            max-width: 200px;
-
-        }
-
+        display: block;
     }
 
 
 
 
-    @media only screen and (min-width: 700px) {
-        .deskmenu {
-            display: block;
 
-        }
-
-        .mobilmenu {
-
-            display: none;
-        }
-
+    .bookcontainer p {
+        position: absolute;
+        font-family: 'Hiragino Mincho Pro', sans-serif;
+        font-size: 2.3vh;
+        top: 14.2vh;
+        left: 15vh;
+        color: #626262;
+        line-height: 25px;
 
     }
 
-    @media only screen and (max-width: 800px) {
-        .containerdesksplash p {
-            display: none;
 
-        }
+    #tilbage button {
+        font-family: 'Hiragino Mincho Pro', sans-serif;
+        color: #626262;
+        font-size: 7vw;
 
-        .containerdesksplash h1 {
-            display: none;
-
-        }
     }
 
-    @media only screen and (min-width: 800px) {
-        .containermobilsplash p {
-            display: none;
-
-        }
-
-        .containermobilsplash h1 {
-            display: none;
-
-        }
+    .menumad {
+        grid-template-columns: repeat(1, 1fr);
     }
+
+    #containercolumn {
+        grid-template-columns: repeat(1, 1fr);
+        text-align: justify;
+    }
+
+    #instafeed {
+        display: none;
+
+    }
+
+    #single article {
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 2vw;
+        margin: auto;
+
+    }
+
+    #streg {
+        border: solid #6A9C4A 1px;
+    }
+
+
+    .column {
+        line-height: 25px;
+    }
+
+
+
+    .logo {
+        text-align: center;
+
+    }
+
+    .logo img {
+        width: 40vw;
+        height: 30vw;
+    }
+
+    #containercolumn p {
+        line-height: 25vw;
+    }
+
+    #containercolumn2 p {
+        line-height: 20px;
+        font-size: 12px;
+        width: 20vw;
+    }
+
+
+    #single img {
+        max-width: 200px;
+
+    }
+
+    .insta {
+        display: none;
+    }
+
+    #bookbord {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .bookcontainer {
+        margin: -10vw;
+        margin-top: 3vw;
+
+    }
+
+}
+
+
+
+
+@media only screen and (min-width: 700px) {
+    .deskmenu {
+        display: block;
+
+    }
+
+    .mobilmenu {
+
+        display: none;
+    }
+
+}
+
+@media only screen and (max-width: 800px) {
+    .containerdesksplash p {
+        display: none;
+
+    }
+
+    .containerdesksplash h1 {
+        display: none;
+
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .containermobilsplash p {
+        display: none;
+
+    }
+
+    .containermobilsplash h1 {
+        display: none;
+
+    }
+}
+
+@media only screen and (min-width: 400px) {
+    #liste {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    #liste {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #liste {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
